@@ -15,9 +15,9 @@ public class StartActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        Intent intent=new Intent(StartActivity.this, MainActivity.class);
-        startActivity(intent);
-        finish();
+//        Intent intent=new Intent(StartActivity.this, MainActivity.class);
+//        startActivity(intent);
+//        finish();
     }
 
     @Override
