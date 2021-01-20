@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
+    android:background="#03A9F4"
     tools:context=".StartActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Li-bel"
-        android:textColor="@android:color/holo_blue_dark"
+        android:textColor="@android:color/primary_text_light"
         android:layout_marginTop="100dp"
         android:layout_gravity="center"
         android:textSize="30sp"
@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
-        android:textColor="@android:color/holo_blue_dark"
+        android:textColor="@android:color/primary_text_light"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
         android:id="@+id/start_login"
@@ -34,7 +34,7 @@
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
         android:id="@+id/start_register"
-        android:textColor="@android:color/holo_blue_dark"
+        android:textColor="@android:color/primary_text_light"
         android:text="Register"/>
 
 </LinearLayout>
