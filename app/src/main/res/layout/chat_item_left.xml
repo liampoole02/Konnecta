@@ -16,9 +16,10 @@
         android:background="@drawable/background_left"
         android:layout_toRightOf="@+id/profile_image"
         android:layout_marginLeft="5dp"
+        android:padding="8dp"
         android:text="Hello"
         android:id="@+id/show_message"
-        android:textSize="10sp"/>
+        android:textSize="18sp"/>
 
 
 </RelativeLayout>
