@@ -30,6 +30,17 @@
             android:layout_alignParentRight="true"
         />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_seen"
+            android:text="Messages seen"
+            android:textColor="#FFFFFF"
+            android:layout_below="@+id/show_message"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"/>
+
+
     </RelativeLayout>
 
 
