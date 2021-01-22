@@ -65,10 +65,10 @@ public class MainActivity extends AppCompatActivity {
                 User user=snapshot.getValue(User.class);
                 username.setText(user.getUsername());
 
-                    if(user.getImageURL().equals("default")){
+                if(user.getImageURL().equals("default")){
                     profile_image.setImageResource(R.mipmap.ic_launcher);
                 }else{
-                    Glide.with(MainActivity.this).load(user.getImageURL()).into(profile_image);
+                    Glide.with(getApplicationContext()).load(user.getImageURL()).into(profile_image);
                 }
             }
 
@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
         switch(item.getItemId()){
             case R.id.Logout:
                 FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(MainActivity.this, StartActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK));
+                startActivity(new Intent(MainActivity.this, StartActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
                 return true;
         }
         return false;
