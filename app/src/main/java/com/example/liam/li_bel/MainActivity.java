@@ -15,9 +15,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
 import com.bumptech.glide.Glide;
 import com.example.liam.li_bel.Fragments.ChatsFragment;
+import com.example.liam.li_bel.Fragments.ProfileFragment;
 import com.example.liam.li_bel.Fragments.UsersFragment;
 import com.example.liam.li_bel.Model.User;
 import com.google.android.material.tabs.TabLayout;
@@ -95,6 +95,8 @@ public class MainActivity extends AppCompatActivity {
 
         viewPagerAdapter.addFragment(new ChatsFragment(),"Chats");
         viewPagerAdapter.addFragment(new UsersFragment(), "Users");
+        viewPagerAdapter.addFragment(new ProfileFragment(), "Profile");
+
 
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
