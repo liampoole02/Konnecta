@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="#9E9E9E"
+    android:background="#000000"
     tools:context=".MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -16,6 +16,7 @@
             android:layout_height="wrap_content"
             android:background="#530728"
             android:id="@+id/namebar"
+
             android:popupTheme="@style/Widget.AppCompat.PopupMenu"
             android:theme="@style/Base.ThemeOverlay.AppCompat.Dark.ActionBar"
             app:popupTheme="@style/MenuStyle">
@@ -26,8 +27,8 @@
                 android:id="@+id/appname"
                 android:text="Li-bel"
                 android:textColor="#fff"
-                android:textSize="20dp"
-                android:textStyle="bold"
+                android:textSize="22dp"
+                android:textStyle="italic"
                 android:layout_marginLeft="250dp"
                 />
 

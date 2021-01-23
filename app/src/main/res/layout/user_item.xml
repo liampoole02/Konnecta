@@ -18,6 +18,7 @@
         android:id="@+id/username"
         android:layout_toRightOf="@id/profile_image"
         android:textStyle="bold"
+        android:textColor="#fff"
         android:layout_toEndOf="@id/profile_image"
         android:layout_marginLeft="20dp"
         android:textSize="18sp"/>
