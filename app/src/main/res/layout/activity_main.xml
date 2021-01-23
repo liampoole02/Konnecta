@@ -5,16 +5,38 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:background="#9E9E9E"
     tools:context=".MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#530728"
+            android:id="@+id/namebar"
+            android:popupTheme="@style/Widget.AppCompat.PopupMenu"
+            android:theme="@style/Base.ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:popupTheme="@style/MenuStyle">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/appname"
+                android:text="Li-bel"
+                android:textColor="#fff"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:layout_marginLeft="250dp"
+                />
+
+        </androidx.appcompat.widget.Toolbar>
 
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#03A9F4"
+            android:background="#530728"
             android:id="@+id/toolbar"
             android:popupTheme="@style/Widget.AppCompat.PopupMenu"
             android:theme="@style/Base.ThemeOverlay.AppCompat.Dark.ActionBar"
@@ -47,12 +69,13 @@
             app:tabTextColor="#000000"
             app:tabIndicatorColor="#03A9F4"
             app:tabSelectedTextColor="#FFFFFF"
-        android:background="#03A9F4"/>
+        android:background="#FF530728"/>
 
     <androidx.viewpager.widget.ViewPager
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/view_pager"
+
         app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
     <Button

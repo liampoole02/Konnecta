@@ -13,7 +13,7 @@
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#03A9F4"
+            android:background="#FF530728"
             android:id="@+id/toolbar"
             android:popupTheme="@style/Widget.AppCompat.PopupMenu"
             android:theme="@style/Base.ThemeOverlay.AppCompat.Dark.ActionBar"
@@ -51,7 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:id="@+id/bottom"
-        android:background="#A7E7EF">
+        android:background="#FF9E9E9E">
         
         <EditText
             android:layout_width="match_parent"

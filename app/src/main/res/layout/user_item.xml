@@ -35,8 +35,6 @@
         android:textColor="#12079F"
         android:layout_marginLeft="20dp"
         android:maxLines="1"
-
-
         />
 
     <de.hdodenhof.circleimageview.CircleImageView
