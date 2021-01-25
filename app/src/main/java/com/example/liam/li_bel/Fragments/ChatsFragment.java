@@ -16,6 +16,7 @@ import com.example.liam.li_bel.Adapter.UserAdapter;
 import com.example.liam.li_bel.Model.Chat;
 import com.example.liam.li_bel.Model.Chatlist;
 import com.example.liam.li_bel.Model.User;
+import com.example.liam.li_bel.Notifications.Token;
 import com.example.liam.li_bel.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -24,6 +25,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -70,11 +72,21 @@ public class ChatsFragment extends Fragment {
 
             }
         });
+
+        updateToken(FirebaseInstanceId.getInstance().getToken());
         return view;
+    }
+
+    private void updateToken(String token){
+        DatabaseReference reference=FirebaseDatabase.getInstance().getReference("Tokens");
+        Token  token1=new Token(token);
+
+        reference.child(fuser.getUid()).setValue(token1);
     }
 
     private void chatList() {
         mUsers=new ArrayList<>();
+
         reference=FirebaseDatabase.getInstance().getReference("Users");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -91,7 +103,6 @@ public class ChatsFragment extends Fragment {
                 }
                 userAdapter=new UserAdapter(getContext(), mUsers, true);
                 recyclerView.setAdapter(userAdapter);
-                recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));
 
             }
 

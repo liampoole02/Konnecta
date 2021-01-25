@@ -30,6 +30,19 @@
             android:text="hello"
 
         />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/show_message"
+            android:textColor="#fff"
+            android:padding="8dp"
+            android:textSize="18sp"
+            android:id="@+id/time"
+            android:text="hello"
+
+            />
 
         <TextView
             android:layout_width="wrap_content"
