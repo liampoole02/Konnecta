@@ -33,7 +33,6 @@ public class MessageAdapter  extends RecyclerView.Adapter<MessageAdapter.ViewHol
 
     FirebaseUser fuser;
 
-
     public MessageAdapter(Context mContext, List<Chat> mChat, String imageURL) {
         this.mContext = mContext;
         this.mChat = mChat;
@@ -57,7 +56,6 @@ public class MessageAdapter  extends RecyclerView.Adapter<MessageAdapter.ViewHol
         Chat chat= mChat.get(position);
 
         holder.show_message.setText(chat.getMessage());
-
         holder.time.setText(chat.getTime());
 
         if(imageURL.equals("default")){

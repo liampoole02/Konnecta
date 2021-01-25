@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -19,16 +20,20 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.rengwuxian.materialedittext.MaterialEditText;
 
 import java.util.HashMap;
 
 public class RegistrationActivity extends AppCompatActivity {
 
-    EditText username, email, password;
+    MaterialEditText username, email, password;
     Button BTNRegister;
 
     FirebaseAuth auth;
     DatabaseReference reference;
+
+    ProgressDialog progressDialog;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +52,8 @@ public class RegistrationActivity extends AppCompatActivity {
 
         auth=FirebaseAuth.getInstance();
 
+        progressDialog = new ProgressDialog(this);
+
         BTNRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -58,12 +65,21 @@ public class RegistrationActivity extends AppCompatActivity {
                 Toast.makeText(RegistrationActivity.this, "Please fill in all the fields", Toast.LENGTH_SHORT).show();
             }else if(txt_password.length()<8){
                 Toast.makeText(RegistrationActivity.this, "Password has to be at least 8 characters", Toast.LENGTH_SHORT).show();
+            }else if(!isValid(txt_email)){
+                Toast.makeText(getApplicationContext(),"Please enter a valid email address", Toast.LENGTH_LONG).show();
             }else{
+                progressDialog.setMessage("Please wait.....Registering");
+                progressDialog.show();
                 register(txt_email, txt_password, txt_username);
             }
             }
         });
 
+    }
+
+    static boolean isValid(String email) {
+        String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
+        return email.matches(regex);
     }
 
     private void register(String email, String password, final String username){
@@ -90,9 +106,11 @@ public class RegistrationActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if(task.isSuccessful()){
+                                progressDialog.dismiss();
                                 Intent intent=new Intent(RegistrationActivity.this, StartActivity.class);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                 startActivity(intent);
+
                                 finish();
                             }
                         }
