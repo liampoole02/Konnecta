@@ -2,7 +2,7 @@ package com.example.liam.li_bel.Model;
 
 public class Chatlist {
 
-    private String id;
+    public String id;
 
     public Chatlist(String id) {
         this.id = id;

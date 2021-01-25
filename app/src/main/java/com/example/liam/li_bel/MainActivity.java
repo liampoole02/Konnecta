@@ -86,7 +86,6 @@ public class MainActivity extends AppCompatActivity {
 
         BTNButton = findViewById(R.id.ButtonBTN);
 
-
         BTNButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -100,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
 
         ViewPagerAdapter viewPagerAdapter=new ViewPagerAdapter(getSupportFragmentManager());
 
-        reference=FirebaseDatabase.getInstance().getReference("Chats");
+        reference=FirebaseDatabase.getInstance().getReference( "Chats");
 
         reference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -139,7 +138,6 @@ public class MainActivity extends AppCompatActivity {
         viewPagerAdapter.addFragment(new ChatsFragment(),"Chats");
         viewPagerAdapter.addFragment(new UsersFragment(), "Users");
         viewPagerAdapter.addFragment(new ProfileFragment(), "Profile");
-
 
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);

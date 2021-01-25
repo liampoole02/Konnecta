@@ -148,6 +148,7 @@ public class MessageActivity extends AppCompatActivity {
 
     private void seenMessage(final String userid){
         reference=FirebaseDatabase.getInstance().getReference("Chats");
+
         seenListener=reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -181,7 +182,9 @@ public class MessageActivity extends AppCompatActivity {
 
         reference.child("Chats").push().setValue(hashMap);
 
-        final DatabaseReference chatRef=FirebaseDatabase.getInstance().getReference("Chatlist").child(fuser.getUid()).child(userid);
+        final DatabaseReference chatRef=FirebaseDatabase.getInstance().getReference("Chatlist")
+                .child(fuser.getUid())
+                .child(userid);
 
         chatRef.addListenerForSingleValueEvent(new ValueEventListener() {
 
