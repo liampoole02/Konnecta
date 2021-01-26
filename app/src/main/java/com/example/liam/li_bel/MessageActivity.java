@@ -49,6 +49,7 @@ public class MessageActivity extends AppCompatActivity {
 
     CircleImageView profile_image;
     TextView username;
+    TextView lastSeen;
 
     FirebaseUser fuser;
     DatabaseReference reference;
@@ -98,6 +99,8 @@ public class MessageActivity extends AppCompatActivity {
 
         profile_image=findViewById(R.id.profile_image);
         username=findViewById(R.id.username);
+        lastSeen=findViewById(R.id.last_seen);
+
         btn_send=findViewById(R.id.btn_send);
         text_send=findViewById(R.id.text_send);
 
@@ -128,6 +131,13 @@ public class MessageActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 User user=snapshot.getValue(User.class);
                 username.setText(user.getUsername());
+
+                if(user.getLastSeen().equals("online")){
+                    lastSeen.setText("" + user.getLastSeen());
+                }else {
+                    lastSeen.setText("Last seen: " + user.getLastSeen());
+                }
+
                 if(user.getImageURL().equals("default")){
                     profile_image.setImageResource(R.mipmap.ic_launcher);
                 }else{
@@ -305,11 +315,12 @@ public class MessageActivity extends AppCompatActivity {
         });
     }
 
-    private void status(String status){
+    private void status(String status, String lastSeen){
         reference=FirebaseDatabase.getInstance().getReference("Users").child(fuser.getUid());
 
         HashMap<String, Object> hashMap=new HashMap<>();
         hashMap.put("status", status);
+        hashMap.put("lastSeen", lastSeen);
 
         reference.updateChildren(hashMap);
 
@@ -318,15 +329,17 @@ public class MessageActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        status("online");
+        status("online", "online");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
         reference.removeEventListener(seenListener);
-        status("offline");
-    }
+
+        String currentDateTimeString = java.text.DateFormat.getDateTimeInstance().format(new Date());
+
+        status("offline", currentDateTimeString);    }
 }
 
 

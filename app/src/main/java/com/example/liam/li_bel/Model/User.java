@@ -6,14 +6,23 @@ public class User {
     private String imageURL;
     private String status;
     private String search;
+    private String lastSeen;
 
-    public User(String username, String id, String imageURL, String status, String search) {
+    public String getLastSeen() {
+        return lastSeen;
+    }
+
+    public void setLastSeen(String lastSeen) {
+        this.lastSeen = lastSeen;
+    }
+
+    public User(String username, String id, String imageURL, String status, String search, String lastSeen) {
         this.username = username;
         this.id = id;
         this.imageURL = imageURL;
         this.status = status;
         this.search = search;
-
+        this.lastSeen = lastSeen;
     }
 
     public String getSearch() {

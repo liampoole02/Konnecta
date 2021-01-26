@@ -34,6 +34,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -204,11 +205,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void status(String status){
+    private void status(String status, String lastSeen){
         reference=FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
 
         HashMap<String, Object> hashMap=new HashMap<>();
         hashMap.put("status", status);
+        hashMap.put("lastSeen", lastSeen);
 
         reference.updateChildren(hashMap);
 
@@ -217,12 +219,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        status("online");
+        status("online", "online");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        status("offline");
+        String currentDateTimeString = java.text.DateFormat.getDateTimeInstance().format(new Date());
+
+        status("offline", currentDateTimeString );
     }
 }
