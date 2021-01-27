@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.provider.ContactsContract;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -17,7 +16,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-
 import com.example.liam.li_bel.Adapter.UserAdapter;
 import com.example.liam.li_bel.Model.User;
 import com.example.liam.li_bel.R;
@@ -99,7 +97,7 @@ public class UsersFragment extends Fragment {
                 }
                 userAdapter=new UserAdapter(getContext(), mUsers, false);
                 recyclerView.setAdapter(userAdapter);
-                recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));
+//                recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));
 
             }
 

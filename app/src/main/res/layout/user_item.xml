@@ -33,7 +33,7 @@
         android:layout_marginTop="-5dp"
         android:paddingTop="5dp"
         android:layout_toRightOf="@id/profile_image"
-        android:textColor="#12079F"
+        android:textColor="#6E677C"
         android:layout_marginLeft="20dp"
         android:maxLines="1"
         />
